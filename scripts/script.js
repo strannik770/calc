@@ -32,13 +32,36 @@ function addOperation(event) {
 			calculate();
 			break;
 		default:
-			result.innerHTML += target.id;
+			calculate();
+			result.innerHTML += " " +target.id+ " ";
 	}
 }
 
 function calculate() {
-	let str = result.innerHTML;
+	let arr =[];
+	arr = result.innerHTML.split(" ");
 	
+	if (arr.length < 3 ) return;
+
+	let a = +arr[0];
+	let b = +arr[2];
+	let op = arr[1];
+
+
+	switch (op) {
+		case "+":
+			result.innerHTML = a + b;
+			break;
+		case "-":
+			result.innerHTML = a - b;
+			break;
+		case ":":
+			result.innerHTML = a/b;
+			break;
+		case "*":
+			result.innerHTML = a * b;
+			break;
+	}
 }
 
 function square() {
